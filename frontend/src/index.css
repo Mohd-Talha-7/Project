@@ -1,0 +1,92 @@
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container{
+  flex: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(15, 15, 15, 0.5)),
+                url("https://images.unsplash.com/photo-1583364486567-ce2e045676e9?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center / cover;
+    z-index: -1;
+    backdrop-filter: blur(8px); /* Blur Effect */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-card input,
+.glass-card textarea {
+  background: rgba(255, 255, 255, 0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  backdrop-filter: blur(4px);
+  margin-bottom: 1rem;
+}
+
+.glass-card input::placeholder,
+.glass-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-card input:focus,
+.glass-card textarea:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  border: 1px solid #90caf9;
+}
+
+.glass-card label {
+  color: white;
+}
+
+.glass-card button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.glass-card button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: black;
+}
+
+.foot-link {
+  color: white !important;
+  transition: color 0.3s ease;
+}
+
+.foot-link:hover {
+  color: #007bff;
+}
+
+.foot {
+  font-family: 'Segoe UI', sans-serif;
+}
