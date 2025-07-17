@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Index = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
     const fetchListings = async () => {
-      const res = await fetch("http://localhost:5000/listings")
+      const res = await fetch(`${API_BASE_URL}/listings`)
       const data = await res.json()
       setListings(data)
     }
@@ -22,7 +23,7 @@ const Index = () => {
               <NavLink to={`/listings/${listing._id}`} className="text-decoration-none">
               <div className='glass-card h-100 overflow-hidden'>
                 <img
-                  src={`http://localhost:5000/images/uploads/${listing.image}`}
+                  src={`${API_BASE_URL}/images/uploads/${listing.image}`}
                   className="card-img-top"
                   style={{ height: '200px', objectFit: "cover" }}
                 />

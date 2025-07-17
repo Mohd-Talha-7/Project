@@ -15,7 +15,7 @@ const Edit = () => {
 
     useEffect(() => {
         const fetchListing = async () => {
-            const res = await fetch(`http://localhost:5000/listings/${id}/edit`)
+            const res = await fetch(`${API_BASE_URL}/listings/${id}/edit`)
             const data = await res.json()
             setFormData(data)
         }
@@ -30,7 +30,7 @@ const Edit = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        await fetch(`http://localhost:5000/listings/${id}`, {
+        await fetch(`${API_BASE_URL}/listings/${id}`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)

@@ -17,7 +17,7 @@ const Image = () => {
     form.append("image", formData.image);
 
     try {
-      fetch(`http://localhost:5000/listings/${id}`, {
+      fetch(`${API_BASE_URL}/listings/${id}`, {
         method: "POST",
         body: form
       })

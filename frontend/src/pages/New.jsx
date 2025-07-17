@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const New = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const New = () => {
     e.preventDefault();
 
     try {
-      fetch('http://localhost:5000/listings', {
+      fetch(`${API_BASE_URL}/listings`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
