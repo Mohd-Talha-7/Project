@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,7 +8,7 @@ const path = require("path");
 const crypto = require("crypto");
 const multerconfig = require("./config/multerconfig");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/listingApp";
+const MONGO_URL = process.env.MONGO_URL;
 
 main().then(() => {
     console.log("connected to DB");
