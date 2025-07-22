@@ -5,7 +5,10 @@ const sessionConfig = session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false },
+  cookie: { 
+    secure: true,
+    sameSite: "none"
+  },
 });
 
 module.exports = sessionConfig;
