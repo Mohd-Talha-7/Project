@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const New = () => {
+
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      alert("You must be logged in to access this page.");
+      navigate("/listings/login");
+    }
+  }, [isLoggedIn]);
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -10,8 +22,6 @@ const New = () => {
     location: "",
     country: "",
   })
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -27,6 +37,7 @@ const New = () => {
       fetch(`${API_BASE_URL}/listings`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(formData)
       })
       navigate("/listings")

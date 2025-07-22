@@ -8,6 +8,9 @@ import New from './pages/New';
 import Show from './pages/Show';
 import Edit from './pages/Edit';
 import Image from './pages/Image';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -21,11 +24,19 @@ const App = () => {
     },
     {
       path: "/listings/new",
-      element: <><Navbar/><New/><Footer/></>
+      element: (
+        <ProtectedRoute>
+          <><Navbar /><New /><Footer /></>
+        </ProtectedRoute>
+      )
     },
     {
       path: "/listings/:id",
-      element: <><Navbar/><Show/><Footer/></>
+      element: (
+        <ProtectedRoute>
+          <><Navbar/><Show/><Footer/></>
+        </ProtectedRoute>
+      )
     },
     {
       path: "/listings/:id/edit",
@@ -34,7 +45,15 @@ const App = () => {
     {
       path: "/listings/:id/image",
       element: <><Navbar/><Image/><Footer/></>
-    }
+    },
+    {
+      path: "/listings/signup",
+      element: <><Navbar/><Signup/><Footer/></>
+    },
+    {
+      path: "/listings/login",
+      element: <><Navbar/><Login/><Footer/></>
+    },
   ])
   return (
     <>

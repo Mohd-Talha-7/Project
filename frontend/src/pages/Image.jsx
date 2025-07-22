@@ -20,7 +20,8 @@ const Image = () => {
     try {
       fetch(`${API_BASE_URL}/listings/${id}`, {
         method: "POST",
-        body: form
+        body: form,
+        credentials: "include",
       })
       navigate(`/listings/${id}`)
     } catch (err){

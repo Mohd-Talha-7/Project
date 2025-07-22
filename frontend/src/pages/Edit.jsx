@@ -34,7 +34,8 @@ const Edit = () => {
         await fetch(`${API_BASE_URL}/listings/${id}`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
+            credentials: "include",
         })
         navigate(`/listings/${id}`)
     }
