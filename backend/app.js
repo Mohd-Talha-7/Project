@@ -20,10 +20,11 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(sessionConfig);
+
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Routes
 app.get("/", (req, res) => {
