@@ -14,6 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "https://roaring-bienenstitch-f6652d.netlify.app"
     ],
     credentials: true,
   })
