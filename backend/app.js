@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://roaring-bienenstitch-f6652d.netlify.app"
+      "https://project-lovat-nine-86.vercel.app"
     ],
     credentials: true,
   })
